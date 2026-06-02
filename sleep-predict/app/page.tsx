@@ -30,7 +30,7 @@ function SectionTitle({ step, title, subtitle }: { step: string; title: string; 
       </div>
       <div>
         <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: 16, color: 'var(--text)', letterSpacing: '-0.01em', marginBottom: 2 }}>{title}</h2>
-        {subtitle && <p style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.5 }}>{subtitle}</p>}
+        {subtitle && <p style={{ fontSize: 12, color: 'var(--text-dim)', lineHeight: 1.5 }}>{subtitle}</p>}
       </div>
     </div>
   );
@@ -48,7 +48,7 @@ function FormCard({ children }: { children: React.ReactNode }) {
 function StatBadge({ label, value }: { label: string; value: string }) {
   return (
     <div style={{ padding: '8px 12px', background: 'var(--surface-2)', borderRadius: 8, border: '1px solid var(--border)' }}>
-      <div style={{ fontSize: 10, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 3 }}>{label}</div>
+      <div style={{ fontSize: 10, color: 'var(--text-dim)', letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 3 }}>{label}</div>
       <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)', fontFamily: 'Syne, sans-serif' }}>{value}</div>
     </div>
   );
@@ -91,7 +91,7 @@ export default function Home() {
           </div>
           <div>
             <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 16, letterSpacing: '-0.02em', color: 'var(--text)' }}>Sleep<span style={{ color: 'var(--accent)' }}>Scan</span></div>
-            <div style={{ fontSize: 10, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>AI Sleep Disorder Predictor</div>
+            <div style={{ fontSize: 10, color: 'var(--text-dim)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>AI Sleep Disorder Predictor</div>
           </div>
         </div>
       </header>
@@ -132,7 +132,7 @@ export default function Home() {
               <FormCard>
                 <SectionTitle step="02" title="Pola Tidur" subtitle="Data kualitas dan durasi tidur Anda" />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-                  <SliderField label="Durasi Tidur" value={form.sleep_duration} min={4} max={10} step={0.5} onChange={update('sleep_duration')} formatValue={v => `${v} jam`} markers={[{ val: 4, label: '4j' }, { val: 7, label: '7j ✓' }, { val: 10, label: '10j' }]} />
+                  <SliderField label="Durasi Tidur" value={form.sleep_duration} min={0} max={10} step={0.5} onChange={update('sleep_duration')} formatValue={v => `${v} jam`} markers={[{ val: 4, label: '4j' }, { val: 7, label: '7j ✓' }, { val: 10, label: '10j' }]} />
                   <SliderField label={`Kualitas Tidur — ${getQualityLabel(form.quality_of_sleep)}`} value={form.quality_of_sleep} min={1} max={10} onChange={update('quality_of_sleep')} formatValue={v => `${v}/10`} markers={[{ val: 1, label: 'Buruk' }, { val: 5, label: 'Cukup' }, { val: 10, label: 'Terbaik' }]} />
                 </div>
               </FormCard>
@@ -169,7 +169,7 @@ export default function Home() {
                   <StatBadge label="Jantung" value={`${form.heart_rate}bpm`} />
                 </div>
                 <div style={{ padding: '10px 12px', background: 'var(--surface-2)', borderRadius: 8, marginBottom: 16 }}>
-                  <div style={{ color: 'var(--text-muted)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 2 }}>Pekerjaan</div>
+                  <div style={{ color: 'var(--text-dim)', fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 2 }}>Pekerjaan</div>
                   <div style={{ color: 'var(--text)', fontFamily: 'Syne, sans-serif', fontWeight: 600, fontSize: 12 }}>{form.occupation}</div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
@@ -179,7 +179,7 @@ export default function Home() {
                     { label: 'Fisik', val: form.physical_activity_level / 120, warn: form.physical_activity_level < 45 },
                   ].map(({ label, val, warn }) => (
                     <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <div style={{ fontSize: 10, color: warn ? 'var(--warning)' : 'var(--text-muted)', width: 72, flexShrink: 0, fontFamily: 'Syne, sans-serif' }}>{label}</div>
+                      <div style={{ fontSize: 10, color: warn ? 'var(--warning)' : 'var(--text-dim)', width: 72, flexShrink: 0, fontFamily: 'Syne, sans-serif' }}>{label}</div>
                       <div style={{ flex: 1, height: 4, borderRadius: 2, background: 'var(--surface-2)', overflow: 'hidden' }}>
                         <div style={{ height: '100%', width: `${val * 100}%`, background: warn ? 'var(--warning)' : 'var(--accent)', borderRadius: 2, transition: 'width 0.4s ease' }} />
                       </div>
@@ -197,7 +197,7 @@ export default function Home() {
                 {loading ? (<><div className="spinner" /><span>Menganalisis...</span></>) : (<><span>🔍</span><span>Analisis Sekarang</span></>)}
               </button>
 
-              <div style={{ fontSize: 11, color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.6 }}>
+              <div style={{ fontSize: 11, color: 'var(--text-dim)', textAlign: 'center', lineHeight: 1.6 }}>
                 Model: Random Forest · 374 sampel<br />Akurasi: <span style={{ color: 'var(--accent)' }}>96%</span>
               </div>
             </div>
@@ -222,7 +222,7 @@ export default function Home() {
                       ['Langkah/Hari', result?.input_data?.daily_steps?.toLocaleString()],
                     ].map(([k, v]) => (
                     <div key={k} style={{ padding: '8px 10px', background: 'var(--surface-2)', borderRadius: 6 }}>
-                      <div style={{ fontSize: 10, color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600 }}>{k}</div>
+                      <div style={{ fontSize: 10, color: 'var(--text-dim)', letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600 }}>{k}</div>
                       <div style={{ fontSize: 13, color: 'var(--text)', fontFamily: 'Syne, sans-serif', fontWeight: 600 }}>{v}</div>
                     </div>
                   ))}
@@ -240,7 +240,7 @@ export default function Home() {
                   { label: 'Usia', pct: 9.3, color: '#ec4899' },
                 ].map((f, i) => (
                   <div key={f.label} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-                    <div style={{ fontSize: 11, color: 'var(--text-muted)', width: 16, textAlign: 'right', fontFamily: 'Syne, sans-serif' }}>{i+1}</div>
+                    <div style={{ fontSize: 11, color: 'var(--text-dim)', width: 16, textAlign: 'right', fontFamily: 'Syne, sans-serif' }}>{i+1}</div>
                     <div style={{ fontSize: 12, color: 'var(--text-dim)', flex: 1, fontFamily: 'Syne, sans-serif' }}>{f.label}</div>
                     <div style={{ width: 90, height: 5, borderRadius: 2, background: 'var(--surface-2)', overflow: 'hidden' }}>
                       <div style={{ height: '100%', width: `${f.pct/16.4*100}%`, background: f.color, borderRadius: 2 }} />
@@ -259,7 +259,7 @@ export default function Home() {
       </div>
 
       <footer style={{ borderTop: '1px solid var(--border)', padding: '20px 24px', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-        <p style={{ fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.04em' }}>
+        <p style={{ fontSize: 11, color: 'var(--text-dim)', letterSpacing: '0.04em' }}>
           SleepScan · <span style={{ color: 'var(--accent)' }}>Sleep Health & Lifestyle Dataset</span> · Random Forest Classifier
         </p>
       </footer>

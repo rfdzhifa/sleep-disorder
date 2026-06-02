@@ -40,7 +40,7 @@ export function SliderField({
       {markers && (
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {markers.map(m => (
-            <span key={m.val} style={{ fontSize: 10, color: value === m.val ? 'var(--accent)' : 'var(--text-muted)', letterSpacing: '0.06em', fontFamily: 'Syne, sans-serif', transition: 'color 0.2s' }}>
+            <span key={m.val} style={{ fontSize: 10, color: value === m.val ? 'var(--accent)' : 'var(--text-dim)', letterSpacing: '0.06em', fontFamily: 'Syne, sans-serif', transition: 'color 0.2s' }}>
               {m.label}
             </span>
           ))}
@@ -84,7 +84,7 @@ export function NumberField({ label, value, min, max, unit, onChange, placeholde
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       <label style={{ fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-dim)', fontFamily: 'Syne, sans-serif', fontWeight: 600 }}>
-        {label} {unit && <span style={{ color: 'var(--text-muted)', textTransform: 'none' }}>({unit})</span>}
+        {label} {unit && <span style={{ color: 'var(--text-dim)', textTransform: 'none' }}>({unit})</span>}
       </label>
       <input
         type="number" value={value} min={min} max={max}
@@ -122,15 +122,15 @@ export function BloodPressureField({ systolic, diastolic, onChangeSystolic, onCh
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 10, color: 'var(--text-muted)', marginBottom: 4, letterSpacing: '0.06em' }}>SISTOLIK</div>
+          <div style={{ fontSize: 10, color: 'var(--text-dim)', marginBottom: 4, letterSpacing: '0.06em' }}>SISTOLIK</div>
           <input type="number" value={systolic} min={80} max={200} onChange={e => onChangeSystolic(Number(e.target.value))} />
         </div>
-        <div style={{ fontSize: 24, color: 'var(--text-muted)', marginTop: 14, fontWeight: 300 }}>/</div>
+        <div style={{ fontSize: 24, color: 'var(--text-dim)', marginTop: 14, fontWeight: 300 }}>/</div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 10, color: 'var(--text-muted)', marginBottom: 4, letterSpacing: '0.06em' }}>DIASTOLIK</div>
+          <div style={{ fontSize: 10, color: 'var(--text-dim)', marginBottom: 4, letterSpacing: '0.06em' }}>DIASTOLIK</div>
           <input type="number" value={diastolic} min={40} max={130} onChange={e => onChangeDiastolic(Number(e.target.value))} />
         </div>
-        <div style={{ color: 'var(--text-muted)', fontSize: 12, marginTop: 16, minWidth: 24 }}>mmHg</div>
+        <div style={{ color: 'var(--text-dim)', fontSize: 12, marginTop: 16, minWidth: 24 }}>mmHg</div>
       </div>
     </div>
   );

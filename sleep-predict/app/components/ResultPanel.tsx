@@ -82,7 +82,7 @@ export default function ResultPanel({ result, onReset }: ResultPanelProps) {
 
         {/* Confidence */}
         <div style={{ marginTop: 20, padding: '12px 16px', background: 'rgba(0,0,0,0.3)', borderRadius: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600, whiteSpace: 'nowrap' }}>
+          <div style={{ fontSize: 11, color: 'var(--text-dim)', letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'Syne, sans-serif', fontWeight: 600, whiteSpace: 'nowrap' }}>
             Confidence
           </div>
           <div style={{ flex: 1 }}>
@@ -96,7 +96,7 @@ export default function ResultPanel({ result, onReset }: ResultPanelProps) {
 
       {/* Probability breakdown */}
       <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 12, padding: 20 }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 16 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-dim)', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 16 }}>
           Distribusi Probabilitas
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -121,7 +121,7 @@ export default function ResultPanel({ result, onReset }: ResultPanelProps) {
 
       {/* Recommendations */}
       <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 12, padding: 20 }}>
-        <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 16 }}>
+        <div style={{ fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-dim)', fontFamily: 'Syne, sans-serif', fontWeight: 600, marginBottom: 16 }}>
           💡 Rekomendasi Kesehatan
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -146,7 +146,7 @@ export default function ResultPanel({ result, onReset }: ResultPanelProps) {
 
       {/* Disclaimer */}
       <div style={{ padding: '12px 16px', background: 'rgba(255,200,0,0.05)', border: '1px solid rgba(255,200,0,0.15)', borderRadius: 8 }}>
-        <p style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.6, margin: 0, letterSpacing: '0.02em' }}>
+        <p style={{ fontSize: 11, color: 'var(--text-dim)', lineHeight: 1.6, margin: 0, letterSpacing: '0.02em' }}>
           ⚠️ <strong style={{ color: 'var(--warning)' }}>Disclaimer:</strong> Hasil prediksi ini adalah output dari model machine learning untuk keperluan edukasi dan tidak menggantikan diagnosis medis profesional. Konsultasikan dengan dokter untuk penanganan yang tepat.
         </p>
       </div>
