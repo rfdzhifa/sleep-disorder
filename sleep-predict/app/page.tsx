@@ -39,7 +39,7 @@ function SectionTitle({ step, title, subtitle }: { step: string; title: string; 
 function FormCard({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 14, padding: 24, position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(99,210,255,0.025) 0%, transparent 60%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%)', pointerEvents: 'none' }} />
       <div style={{ position: 'relative' }}>{children}</div>
     </div>
   );
@@ -84,7 +84,7 @@ export default function Home() {
 
   return (
     <main style={{ minHeight: '100vh', position: 'relative', zIndex: 1 }}>
-      <header style={{ borderBottom: '1px solid var(--border)', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', backdropFilter: 'blur(12px)', background: 'rgba(7,9,15,0.8)', position: 'sticky', top: 0, zIndex: 100 }}>
+      <header style={{ borderBottom: '1px solid var(--border)', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', backdropFilter: 'blur(12px)', background: 'rgba(255,255,255,0.85)', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent-glow)', border: '1px solid var(--border-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span className="glow-dot" style={{ width: 10, height: 10 }} />
@@ -156,7 +156,7 @@ export default function Home() {
             </div>
 
             <div style={{ position: 'sticky', top: 90, display: 'flex', flexDirection: 'column', gap: 16 }}>
-              <div style={{ background: 'var(--surface)', border: '1px solid var(--border-accent)', borderRadius: 14, padding: 20, boxShadow: '0 0 40px rgba(99,210,255,0.05)' }}>
+              <div style={{ background: 'var(--surface)', border: '1px solid var(--border-accent)', borderRadius: 14, padding: 20, boxShadow: '0 0 40px var(--accent-glow)' }}>
                 <div style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', fontFamily: 'Syne, sans-serif', fontWeight: 700, marginBottom: 16 }}>Ringkasan Input</div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 16 }}>
                   <StatBadge label="Kelamin" value={form.gender === 'Male' ? '♂ Pria' : '♀ Wanita'} />
@@ -193,7 +193,7 @@ export default function Home() {
                 <div style={{ padding: '10px 14px', background: 'rgba(255,95,109,0.08)', border: '1px solid rgba(255,95,109,0.3)', borderRadius: 8, fontSize: 12, color: 'var(--danger)' }}>{error}</div>
               )}
 
-              <button onClick={handleSubmit} disabled={loading} style={{ width: '100%', padding: '16px', background: loading ? 'rgba(99,210,255,0.3)' : 'var(--accent)', color: 'var(--bg)', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 14, letterSpacing: '0.08em', textTransform: 'uppercase', border: 'none', borderRadius: 10, cursor: loading ? 'not-allowed' : 'pointer', transition: 'all 0.25s', boxShadow: loading ? 'none' : '0 0 30px rgba(99,210,255,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+              <button onClick={handleSubmit} disabled={loading} style={{ width: '100%', padding: '16px', background: loading ? 'rgba(99,210,255,0.3)' : 'var(--accent)', color: 'var(--bg)', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 14, letterSpacing: '0.08em', textTransform: 'uppercase', border: 'none', borderRadius: 10, cursor: loading ? 'not-allowed' : 'pointer', transition: 'all 0.25s', boxShadow: loading ? 'none' : '0 0 30px var(--accent-glow)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
                 {loading ? (<><div className="spinner" /><span>Menganalisis...</span></>) : (<><span>🔍</span><span>Analisis Sekarang</span></>)}
               </button>
 
